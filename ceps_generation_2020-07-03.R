@@ -45,7 +45,7 @@ df <- as.data.frame(raw)
 # Check the column names of the data frame
 colnames(df)
 # Remove the X column from the data frame
-df <- select(df, -c("X"))
+df <- select(df,-c("X"))
 # Rename the column names
 df <- df %>%
   rename(
@@ -88,7 +88,7 @@ ggplot(data = df) +
 # Create a categorical variable for electricity generation source
 categorized = df %>%
   select(date, PE, PPE, JE, VE, PVE, AE, VTE, FVE) %>%
-  gather(key = "source", value = "output_MW",-date)
+  gather(key = "source", value = "output_MW", -date)
 
 # Create a custom color palette
 custom.col <-
@@ -121,3 +121,9 @@ ggplot(categorized, aes(
 )) +
   geom_bar(position = "fill", stat = "identity") +
   scale_fill_manual(values = custom.col)
+
+# Calculate the  overall total
+summarise(categorized, total_MW = sum(output_MW, na.rm = TRUE))
+# Calculate the total output per source
+categorized_by_source <- group_by(categorized, source)
+summarise(categorized_by_source, output_MW = sum(output_MW, na.rm = TRUE))
