@@ -45,11 +45,11 @@ df <- as.data.frame(raw)
 # Check the column names of the data frame
 colnames(df)
 # Remove the X column from the data frame
-df <- select(df,-c("X"))
+df <- select(df, -c("X"))
 # Rename the column names
 df <- df %>%
   rename(
-    "Date" = Datum,
+    "date" = Datum,
     "PE" = PE..MW.,
     "PPE" = PPE..MW.,
     "JE" = JE..MW.,
@@ -64,16 +64,60 @@ df <- df %>%
 sapply(df, class)
 
 # Convert the Date column from type character into type POSIXct
-df["Date"] <- lapply(df["Date"],
+df["date"] <- lapply(df["date"],
                      function(x)
                        as.POSIXct(
                          strptime(x, "%d.%m.%Y %H:%M", tz = "Europe/Prague"), format = "%Y-%m-%d %H:%M"
                        ))
 
-
+# Line chart with multiple metrics
 ggplot(data = df) +
   # A geom is the geometrical object that a plot uses to represent data
-  geom_smooth(mapping = aes(x = Date, y = VTE), color = "blue")
+  geom_line(mapping = aes(x = date, y = VTE), color = "blue") +
+  geom_line(mapping = aes(x = date, y = FVE), color = "red")
 
+# Create a column with total electricity generated
+df <- df %>%
+  replace(is.na(.), 0) %>% mutate(total_MW = rowSums(.[2:10]))
+
+# Plot the total electricity produced
 ggplot(data = df) +
-  geom_point(mapping = aes(x = Date, y = FVE))
+  geom_line(mapping = aes(x = date, y = total_MW), color = "blue")
+
+# Data preparation
+# Create a categorical variable for electricity generation source
+categorized = df %>%
+  select(date, PE, PPE, JE, VE, PVE, AE, VTE, FVE) %>%
+  gather(key = "source", value = "output_MW",-date)
+
+# Create a custom color palette
+custom.col <-
+  c(
+    "#000000",
+    "#E69F00",
+    "#56B4E9",
+    "#009E73",
+    "#F0E442",
+    "#0072B2",
+    "#D55E00",
+    "#CC79A7"
+  )
+
+# Simple line chart trend
+ggplot(categorized, aes(x = date, y = output_MW)) +
+  geom_line(aes(color = source)) +
+  scale_color_manual(values = custom.col)
+
+# Stacked bar chart
+ggplot(categorized, aes(
+  fill = source, y = output_MW, x = date
+)) +
+  geom_bar(position = "stack", stat = "identity") +
+  scale_fill_manual(values = custom.col)
+
+# 100% Stacked bar chart
+ggplot(categorized, aes(
+  fill = source, y = output_MW, x = date
+)) +
+  geom_bar(position = "fill", stat = "identity") +
+  scale_fill_manual(values = custom.col)
