@@ -11,4 +11,7 @@ To update R on Mac, download the latest R version `.pkg` file from [CRAN](https:
 In order to be able to fully use terminal in RStudio you need to give full disk access to both Terminal and RStudio.
 
 # Code formatting
-To re-format your code in R pres CTRL + SHIFT + A
+To re-format your code in RStudio pres CTRL + SHIFT + A
+
+# Useful links to learn basics of R
+[R for data science](https://r4ds.had.co.nz/introduction.html)
