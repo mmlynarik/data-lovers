@@ -45,7 +45,7 @@ df <- as.data.frame(raw)
 # Check the column names of the data frame
 colnames(df)
 # Remove the X column from the data frame
-df <- select(df,-c("X"))
+df <- select(df, -c("X"))
 # Rename the column names
 df <- df %>%
   rename(
@@ -88,7 +88,7 @@ ggplot(data = df) +
 # Create a categorical variable for electricity generation source
 categorized = df %>%
   select(date, PE, PPE, JE, VE, PVE, AE, VTE, FVE) %>%
-  gather(key = "source", value = "output_MW", -date)
+  gather(key = "source", value = "output_MW",-date)
 
 # Create a custom color palette
 custom.col <-
@@ -124,6 +124,22 @@ ggplot(categorized, aes(
 
 # Calculate the  overall total
 summarise(categorized, total_MW = sum(output_MW, na.rm = TRUE))
+
 # Calculate the total output per source
-categorized_by_source <- group_by(categorized, source)
-summarise(categorized_by_source, output_MW = sum(output_MW, na.rm = TRUE))
+# Grouped data have to be stored in a new variable in order to assign custom colors
+categorized_by_source <- categorized %>%
+  group_by(source) %>%
+  summarise(output_MW = sum(output_MW, na.rm = TRUE))
+
+ggplot(data = categorized_by_source) +
+  geom_col(mapping = aes(x = source, y = output_MW), fill = custom.col) +
+  scale_y_continuous(labels = scales::comma)
+
+# Without the new variable this would not work as categorized is not grouped by in reality
+categorized %>%
+  group_by(source) %>%
+  summarise(output_MW = sum(output_MW, na.rm = TRUE))
+
+ggplot(data = categorized) +
+  geom_col(mapping = aes(x = source, y = output_MW), fill = custom.col) +
+  scale_y_continuous(labels = scales::comma)
