@@ -135,11 +135,4 @@ ggplot(data = categorized_by_source) +
   geom_col(mapping = aes(x = source, y = output_MW), fill = custom.col) +
   scale_y_continuous(labels = scales::comma)
 
-# Without the new variable this would not work as categorized is not grouped by in reality
-categorized %>%
-  group_by(source) %>%
-  summarise(output_MW = sum(output_MW, na.rm = TRUE))
 
-ggplot(data = categorized) +
-  geom_col(mapping = aes(x = source, y = output_MW), fill = custom.col) +
-  scale_y_continuous(labels = scales::comma)
