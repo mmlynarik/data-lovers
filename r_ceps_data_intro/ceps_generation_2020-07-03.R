@@ -35,7 +35,7 @@ Při agregaci „Hodina“ je průměrný výkon roven energii [MWh].
 "
 
 raw <- read.delim(
-  "sample_datasets/ceps_generation_2020-07-03.txt",
+  "ceps_generation_2020-07-03.txt",
   header = TRUE,
   sep = ";"
 )
