@@ -34,8 +34,17 @@ které jsou dostupné v řídícím systému ČEPS. Hodnoty výroby FVE jsou odh
 Při agregaci „Hodina“ je průměrný výkon roven energii [MWh].
 "
 
+# Reading cleaned data of the comments in the header (day, 15 min, sum)
 raw <- read.delim(
-  "ceps_generation_2020-07-03.txt",
+  "ceps_generation_2020_07_03.txt",
+  header = TRUE,
+  sep = ";"
+)
+
+# Reading the file as is downloaded from ceps in .txt (day, 15 min, sum)
+raw2 <- read.delim(
+  "ceps_generation_2020_07_12.txt",
+  skip = 2,
   header = TRUE,
   sep = ";"
 )
