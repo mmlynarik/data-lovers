@@ -93,9 +93,9 @@ df <- df %>%
 ggplot(data = df) +
   geom_line(mapping = aes(x = date, y = total_MW), color = "blue")
 
-# Data preparation
+# Data preparation (tidy data)
 # Create a categorical variable for electricity generation source
-categorized = df %>%
+categorized <- df %>%
   select(date, PE, PPE, JE, VE, PVE, AE, VTE, FVE) %>%
   gather(key = "source", value = "output_MW",-date)
 

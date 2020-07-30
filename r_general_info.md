@@ -7,3 +7,6 @@ near(sqrt(2) ^ 2,  2)
 near(1 / 49 * 49, 1)
 #> [1] TRUE
 ```
+
+References
+[R for Data Science](https://r4ds.had.co.nz/)
