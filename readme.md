@@ -1,3 +1,9 @@
+# Repository
+Keep all the file names and documentation in English if possible.
+
+Use `lower_snake_case` to name all the folders and files.
+
+# Python setup
 We recommend using a pure python distribution (no conda). 
 For best reproduction of the code within this repository use [Python 3.8.6][3]
 
