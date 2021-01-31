@@ -1,13 +1,17 @@
 from timeit import default_timer as timer
 
 
-def maskify(cc):
-    # Replace all characters in a provided string with # except of the last 4
+def maskify(cc: str) -> str:
+    """
+    Replace all characters in a provided string with # except of the last 4
+    """
     return "#"*(len(cc)-4) + cc[-4:]
 
 
-def maskify2(cc):
-    # Replace all characters in a provided string with # except of the last 4
+def maskify2(cc: str) -> str:
+    """
+    Replace all characters in a provided string with # except of the last 4
+    """
     return cc.replace(cc[:-4], "#"*len(cc[:-4]))
 
 
