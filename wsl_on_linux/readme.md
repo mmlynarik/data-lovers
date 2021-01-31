@@ -1,3 +1,7 @@
+If you compile Python from source, you must have the lzma-dev package installed, or it will not be built into python.
+
+For ubuntu: `sudo apt-get install liblzma-dev` 
+
 [Multiple python versions on Ubuntu][1]
 [Using Python from WSL in VSCode][2]
 [Encounter lsb_release issue?][3]
