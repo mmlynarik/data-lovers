@@ -1,3 +1,10 @@
+# Python
+Check all the installed python distributions on your machine. Make sure you understand the path to each installation and that you are aware of them. 
+
+If you encounter mismatch of 32-bit python vs. 64-bit python, use this, to validate the version of currently used python:
+`python -c 'import platform; print(platform.architecture()[0])'`
+
+# Python path problems
 [Python path problems?][1]
 
 # Set up virtualenvwrapper on Ubuntu in BASH

@@ -1,6 +1,6 @@
 # Docker
 
-- for a comprehensive course on Docker, check out this [Udemy course](https://www.udemy.com/course/docker-mastery); (you can ask <juraj.palka@nanoenergies.cz> to share his personal account credentials for free access)
+- for a comprehensive course on Docker, check out this [Udemy course](https://www.udemy.com/course/docker-mastery); (you can ask <jurajpalka1@gmail.com> to share his personal account credentials for free access)
 - simply put: making sure the code runs the same on each machine (putting the environment into a container which stays the same on all machines)
 - opensource, from 2013
 - host to container infrastructure shift (serverless) -> Docker
@@ -101,7 +101,7 @@ Example of running a container which takes files from local directory (bind moun
 - [best practice](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) for creating a DockerFile
 - [Cloning code into the image](https://dzone.com/articles/clone-code-into-containers-how)
 
-## Installing the docker image with unified environment for Nano
+## Installing the docker image with unified environment
 
 - you need to have docker installed on your machine
 - the repository must contain a `dockerfile` which contains instructions on how to build the docker image
