@@ -36,6 +36,8 @@ Make sure python installation you want to use is in the PATH. Check the PATH env
 Make sure you are using the virtual environment you want and not some else. Check which venv is activated. 
 If you installed [virtualenvwrapper][2] you can check it with the command `whereis python`.
 
+If you are using bash terminal you can check it up with `which python`
+
 If your module is not found and you are sure it is installed:
 * check which virtual environment you are using
 * check which python installation on your machine you are using
