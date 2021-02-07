@@ -1,6 +1,21 @@
 # Linux commands
 `ls` lists all available files
-`cat <filename>` yo open a file in terminal
+`cat <filename>` to open a file in terminal
+`cp <filename>` to copy a file from terminal
+
+Always check whether you need to be in root and whether you are.
+
+You use `sudo` in front of the commands if you want to run them as SuperUser.
+
+Sudo = SuperUser DO and is used to access restricted files and operations. By default, Linux restricts access to certain parts of the system preventing sensitive files from being compromised.
+
+`apt-get update` to update your OS
+`apt-get upgrade` to update packages
+`apt install python3-pip` to install pip
+
+If `pip` does not work, try `pip3`
+
+# Cron and Linux
 
 Debugging cron in docker to see logs
 ```
@@ -33,15 +48,5 @@ CRON syntax
 `2>&1` writes both errors and successful messages (however, once I add it to the file it does not log anything)<br>
 
 We might consider using [Airflow](/docs/airflow.md) instead of CRON.
-
-# Ubuntu
-Always check whether you need to be in root and whether you are.
-
-`sudo su` to get into the root (e.g. to install update of the OS); asks you for the password<br>
-`apt-get update` to update your OS
-`apt-get upgrade` to update packages
-`apt install python3-pip` to install pip
-
-If `pip` does not work, try `pip3`
 
 
