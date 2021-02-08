@@ -89,6 +89,7 @@ Example of running a container which takes files from local directory (bind moun
 
 ### Docker Compose
 
+- Dockerfile only accept line endings LF; if you use windows and your default git setting is set to CRLF, your docker compose will end up with an error 127
 - combination of command line and configuration file
 - benefits: configure relationships between containers, save docker container settings in easy-to-read file, create one-liner developer environment startups
 - comprised of YAML-formatted file and a CLI tool docker-compose (used for local dev/test automation)
