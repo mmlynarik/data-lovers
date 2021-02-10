@@ -204,6 +204,11 @@ You don't need to download layers which are already present. Docker never stores
 
 `docker image inspect <container id>` returns JSON metadata about the image -> all the details about the image
 
+You can copy paste files from your hostsystem to the docker container with:
+`docker cp foo.txt containerId:/foo.txt`
+and vice versa with:
+`docker cp containerId:/foo.txt foo.txt`
+
 #### Docker code examples with explanation
 
 `docker container run --publish 80:80 nginx`
