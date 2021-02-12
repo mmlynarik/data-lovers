@@ -12,6 +12,8 @@ WebJobs support triggers by timer, Azure Storage queues and blobs, Azure service
 
 # Data Storage
 
+For easier exploration of Azure storage, download [Azure Storage Explorer][6]
+
 ## [Blob storage][1]
 * cloud file system
 * the cheapest and with the best performance
@@ -32,13 +34,42 @@ WebJobs support triggers by timer, Azure Storage queues and blobs, Azure service
 * non-relational structured data (structured NoSQL data)
 * data that don't require complex joins, foreign keys, or stored procedures and can be denormalized for fast access
 * schemaless design
-* RowKey + PartitionKey
+* every entity must have PartitionKey + RowKey
 * allows searching through the data, choose subset of the dataset based on the Keys
 * user data for web applications, address books, device information, metadata
 * accepts authenticated calls from inside and outside the Azure cloud
 * a table is a collection of entities (<1MB for Azure storage, <2MB for Azure Cosmos DB)
 
 [Create Azure Table storage][5]
+
+### Accessing Azure table storage from python
+Use [azure-data-tables][7] for easy manipulation of azure storage from python.
+
+The entity (single data entry) is a data type of python dictionary.
+
+When using a NoSQL storage, there is a lot of new ways of thinking about your storage. 
+
+You can store the entire dataframes within a single RowKey. Let's say you set a single market and a day as your partition. You set a stock as your row. Within the data, you can store a price prediction for every minute of that stock for that day. You can then use the partition and row indexes to retrieve specific objects as you need them.
+
+```
+from azure.data.tables import TableServiceClient
+
+entity = {
+    "PartitionKey": partition_index,
+    "RowKey": object_index,
+    "data": dict
+}
+
+connection_string = get_your_credential()
+
+azure_table_name = "your_table_name"
+
+table_service_client = TableServiceClient.from_connection_string(
+    conn_str=connection_string
+)
+table_client = table_service_client.get_table_client(table_name=azure_table_name)
+table_client = table_client.create_entity(entity=entity)
+```
 
 ## Azure PostgreSQL or CosmosDb
 * relational database
@@ -61,3 +92,5 @@ WebJobs support triggers by timer, Azure Storage queues and blobs, Azure service
 [3]: https://docs.microsoft.com/en-us/rest/api/storageservices/insert-entity
 [4]: https://docs.microsoft.com/en-us/rest/api/storageservices/put-blob
 [5]: https://docs.microsoft.com/en-us/azure/storage/tables/table-storage-quickstart-portal
+[6]: https://azure.microsoft.com/en-us/features/storage-explorer/
+[7]: https://pypi.org/project/azure-data-tables/
