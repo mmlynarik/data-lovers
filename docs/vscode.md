@@ -42,6 +42,8 @@ PYTHONPATH=./src:./tests
 
 `CTRL + P` to search for a file within the repository
 
+`CTRL + B` to hide the explorer
+
 `ALT + Z` to trigger word wrap
 
 `CTRL + SHIFT + P` to trigger the command palette

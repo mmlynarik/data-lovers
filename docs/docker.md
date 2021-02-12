@@ -89,6 +89,7 @@ Example of running a container which takes files from local directory (bind moun
 
 ### Docker Compose
 
+- Dockerfile only accept line endings LF; if you use windows and your default git setting is set to CRLF, your docker compose will end up with an error 127
 - combination of command line and configuration file
 - benefits: configure relationships between containers, save docker container settings in easy-to-read file, create one-liner developer environment startups
 - comprised of YAML-formatted file and a CLI tool docker-compose (used for local dev/test automation)
@@ -202,6 +203,11 @@ Once finished, remove the committed container along with the committed image to 
 You don't need to download layers which are already present. Docker never stores the same image data twice. You can have multiple images but build from the same layers.<br>
 
 `docker image inspect <container id>` returns JSON metadata about the image -> all the details about the image
+
+You can copy paste files from your hostsystem to the docker container with:
+`docker cp foo.txt containerId:/foo.txt`
+and vice versa with:
+`docker cp containerId:/foo.txt foo.txt`
 
 #### Docker code examples with explanation
 
