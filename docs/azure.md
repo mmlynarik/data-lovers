@@ -51,25 +51,7 @@ When using a NoSQL storage, there is a lot of new ways of thinking about your st
 
 You can store the entire dataframes within a single RowKey. Let's say you set a single market and a day as your partition. You set a stock as your row. Within the data, you can store a price prediction for every minute of that stock for that day. You can then use the partition and row indexes to retrieve specific objects as you need them.
 
-```
-from azure.data.tables import TableServiceClient
-
-entity = {
-    "PartitionKey": partition_index,
-    "RowKey": object_index,
-    "data": dict
-}
-
-connection_string = get_your_credential()
-
-azure_table_name = "your_table_name"
-
-table_service_client = TableServiceClient.from_connection_string(
-    conn_str=connection_string
-)
-table_client = table_service_client.get_table_client(table_name=azure_table_name)
-table_client = table_client.create_entity(entity=entity)
-```
+Check [azure_tables_code_template](../code_templates/azure/azure_tables.py) for a simple how to guide.
 
 ## Azure PostgreSQL or CosmosDb
 * relational database
