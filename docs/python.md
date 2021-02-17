@@ -143,6 +143,12 @@ def test_sum_tuple():
 ```
 
 - no TestCase, no classes and no command-line entry point
+- testing whether the expression raises a specific exception:
+```
+with pytest.raises(ValidationError):
+    invalid_data_type = load_test_file(type="invalid_data_type")
+    assert validate(instance=invalid_data_type, schema=schema)
+```
 - [pytest documentation][6]
 
 ## How to structure a test?

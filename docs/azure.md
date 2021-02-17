@@ -53,6 +53,11 @@ You can store the entire dataframes within a single RowKey. Let's say you set a 
 
 Check [azure_tables_code_template](../code_templates/azure/azure_tables.py) for a simple how to guide.
 
+Interesting article about costs of data storage in Azure tables on large scale, how to delete them and how to think about the design of your storage to keep deletion in mind.
+[Reaching the limits of Azure Table storage ... or trying to][8]
+
+[Azure table storage design guide][9]
+
 ## Azure PostgreSQL or CosmosDb
 * relational database
 * most expensive solution
@@ -69,6 +74,10 @@ Check [azure_tables_code_template](../code_templates/azure/azure_tables.py) for 
 5) When are the data created and for how long are they valid?
 6) Data access and sensitivity
 
+# Application insights
+
+To view your saved queries go into the query explorer.
+
 [1]: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction
 [2]: https://docs.microsoft.com/en-us/azure/storage/tables/table-storage-overview
 [3]: https://docs.microsoft.com/en-us/rest/api/storageservices/insert-entity
@@ -76,3 +85,5 @@ Check [azure_tables_code_template](../code_templates/azure/azure_tables.py) for 
 [5]: https://docs.microsoft.com/en-us/azure/storage/tables/table-storage-quickstart-portal
 [6]: https://azure.microsoft.com/en-us/features/storage-explorer/
 [7]: https://pypi.org/project/azure-data-tables/
+[8]: https://medium.com/clusterreply/azure-table-storage-limits-da039b20510a
+[9]: https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-design-guide

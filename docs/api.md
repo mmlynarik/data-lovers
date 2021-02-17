@@ -132,6 +132,11 @@ Flask already has a web server built within itself. This means it will create it
 Web services usually return JSON.
 Web applications usually return a page e.g. HTML.
 
+### Validating JSON schema of the request/response
+
+Use the [jsonschema][1] package.
+
+
 ### R and environments
 
 - reproduce work (schedule reporting, team collaboration, project validation); making sure the code always runs (making sure the right package versions and other environment variables are in place); safely upgrade packages
@@ -198,3 +203,5 @@ app.get(“/url”, (req, res, next) => {
  res.json([“Kevin”,”Neil”,”Antony”,”Jonas”,”Lambert”]);
 });
 ```
+
+[1]: https://python-jsonschema.readthedocs.io/en/latest/
