@@ -50,6 +50,15 @@ print(my_module.__file__)
 # Generating unique identifiers
 Check out the [uuid][8] package.
 
+# Installing packages
+When you use `pip install -r requirements.txt` you can be installing latest version of listed package or its specific version or a minimal version etc. 
+
+ Tilde equals `~=` means it will select the latest version of the package, `package ~= 0.6.10` greater than or equal to 0.6.10, but still in the 0.6.* version, so it won't download 0.7.0 for example. 
+ 
+ It ensures you will get security fixes but keep backward-compatibility, *if the package maintainer respects the semantic versioning* (which states that breaking changes should occur only in major versions).
+
+In case the package maintainer does not respect the [semantic versioning][11] of the package, always install a specific package version `packege == 0.6.10` to avoid breaking changes in your code. 
+
 # Building a package in python
 To locally build/update the wheel and source files use `python setup.py sdist bdist_wheel`. When doing an update, adjust the version in `setup.py`.
 
@@ -225,6 +234,44 @@ There are two main python libraries for this purpose: **holidays** and **workale
 - a list of unnecessary booleans is imported e.g. include_easter_sunday -> same for all other holidays
 - a single way to call a country: CzechRepublic
 
+# Linter
+
+Linter is a tool that analyzes source code to flag programming errors, bugs, stylistic errors and suspicious constructs.
+
+What does a linter do?
+* find syntax errors
+* find usage of undeclared variables
+* detect call to undefined function
+* highlight typos
+* enforce types
+* check compliance with a given style-guide or security rule
+* code standardisation (replace all tabs for spaces, unify indents)
+* performance check
+* improves code readability (code reviews focused on logic and architecture, faster and easier code review)
+* makes code base maintenance easier
+* etc.
+
+You can run linter:
+* staticly (runs through your code source without executing it)
+* within your IDE automatically, e.g. on save
+* as an additional step in your CI
+* all of the above
+
+## [Pylint][13]
+
+The default coding style used by Pylint is close to [PEP 8][14] "the Style Guide for Python".
+
+- looks for errors and recommends suggestions
+- displays messages as it analyzes the code
+- displays some statistics about the number of warnings and errors found
+- messages are classified under various categories such as errors and warnings
+- the code is given an overall mark based on the number and severity of the warnings and errors
+- provides you with a configuration file where you can adjust your preference on some particular issues
+
+## Other python linters
+
+[Bandit][12] a python linter focused on security of your code.
+
 [1]: https://hackersandslackers.com/so-youve-fucked-up-your-python-path/
 [2]: https://pypi.org/project/virtualenvwrapper/
 [3]: https://packaging.python.org/tutorials/packaging-projects/
@@ -235,3 +282,7 @@ There are two main python libraries for this purpose: **holidays** and **workale
 [8]: https://docs.python.org/3/library/uuid.html
 [9]: https://pypi.org/project/holidays/
 [10]: https://pypi.org/project/workalendar/
+[11]: https://semver.org/
+[12]: https://bandit.readthedocs.io/en/latest/
+[13]: http://pylint.pycqa.org/en/latest/
+[14]: https://www.python.org/dev/peps/pep-0008/

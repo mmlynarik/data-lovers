@@ -75,6 +75,8 @@ A simple overview and presentation on how to build Airflow UI from a docker file
 
 [A complete guide to setting up a local development environment for Airflow (Docker, PyCharm and tests)][18]
 
+[Lesser known tips and tricks in Airflow][20]
+
 [1]: https://medium.com/@itunpredictable/apache-airflow-on-docker-for-complete-beginners-cf76cf7b2c9a
 [2]: https://github.com/puckel/docker-airflow
 [3]: https://airflow.apache.org/docs/apache-airflow/stable/executor/local.html
@@ -94,3 +96,4 @@ A simple overview and presentation on how to build Airflow UI from a docker file
 [17]: https://crontab.guru/
 [18]: https://medium.com/ninjavan-tech/setting-up-a-complete-local-development-environment-for-airflow-docker-pycharm-and-tests-3577ddb4ca94
 [19]: https://www.astronomer.io/guides/airflow-executors-explained
+[20]: https://medium.com/datareply/airflow-lesser-known-tips-tricks-and-best-practises-cf4d4a90f8f

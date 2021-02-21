@@ -190,7 +190,7 @@ Once finished, remove the committed container along with the committed image to 
 `docker container kill <container id>` stops a running container<br>
 `docker container rm <container id>` removes an existing container <br>
 `docker container run -it --name proxy python-docker-demo bash` runs a new container named proxy on the image and opening the bash terminal at the same time (use `CTRL + C` to exit python terminal and `exit` to quit the created terminal). this allows you to run different files within the repository which was copied to the image when it was build. This basically opens a terminal within the container repository.<br>
-`docker cp milan.py 49d:/usr/src/app/des` copies a local file (milan.py) into the selected image path (49d:/usr/src/app/des)<br>
+`docker cp test_file.py 49d:/usr/src/app/des` copies a local file (test_file.py) into the selected image path (49d:/usr/src/app/des)<br>
 `docker history <image name>:<image tag>` gives all the information about the changes on the image<br>
 `docker run --name equity_api -p 5000:5000 general` when running an API or an app you should set the port on which it should be accessed because otherwise you won't be able to access it<br>
 `docker image prune` to clean up just "dangling" images<br>
@@ -209,6 +209,9 @@ You can copy paste files from your hostsystem to the docker container with:
 and vice versa with:
 `docker cp containerId:/foo.txt foo.txt`
 
+If you are doing minor changes to the Dockerfile, you don't need to remove the image and then re-build it. Stop the linked containers and run `docker-compose build` instead.
+
+`docker-compose build`. If you change a service’s Dockerfile or the contents of its build directory, run docker-compose build to rebuild it.
 #### Docker code examples with explanation
 
 `docker container run --publish 80:80 nginx`
@@ -228,18 +231,3 @@ and vice versa with:
   will give you a terminal (interactive shell) inside a newly run container called proxy (once you exit it will stop the container)
   `docker container exec -it mysql bash`
   will give you a terminal (interactive shell) inside the already running container mysql (once you exit the container continues to run as it runs in parallel)
-
-## R and Docker
-
-[Rocker](https://www.rocker-project.org/) - docker containers for the R Environment
-
-[The list of rocker containers](https://hub.docker.com/u/rocker)
-
-Create a container with base R
-`docker run --rm -ti rocker/r-base`
-
-Create a container with rstudio and launch it in your browser on localhost. After stopping it will remove the container. (Why?)
-`docker run -e PASSWORD=yourpassword --rm -p 8787:8787 rocker/rstudio`
-
-To install packages within DockerFile
-`RUN install2.r pkg1 pgk2 pkg3 ...`

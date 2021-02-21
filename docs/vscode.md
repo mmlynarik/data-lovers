@@ -9,7 +9,23 @@ VS Code allows fully customized user and workspace settings and comes with hundr
 
 # Adding multiple folders into PYTHONPATH and using the Run mode
 * Create a `.env` file if you havent already
-* Set a PYTHONPATH environment variable with the paths you need for developing, running, testing windows: `PYTHONPATH=./src;./tests`, linux: `PYTHONPATH=./src:./tests`
+* Set a PYTHONPATH environment variable with the paths you need for developing, running, testing: `PYTHONPATH=./src:./tests`
+
+You can also set and extend the PYTHONPATH directly within the `settings.json` file:
+```
+{
+"python.envFile": "${workspaceFolder}/.env",
+    "terminal.integrated.env.windows": {
+        "PYTHONPATH":"${env:PYTHONPATH}:${workspaceFolder}/src":${workspaceFolder}/tests",
+    },
+}
+```
+
+Path extension syntax needs to be adjusted to your operating system.
+
+Linux, MacOS `:` <br>
+Windows `;`
+
 
 # Pylint
 If you are experiencing problems with pylint make sure it is setup correctly. 
