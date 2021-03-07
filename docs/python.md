@@ -203,37 +203,6 @@ Store larger test input data in a folder called `fixtures` within the `tests` fo
 Automated testing tools (e.g. execute tests when you make a commit to the git repository) are part of the CI/CD tools.
 CI/CD = continuous integration/continuous deployment (run tests, compile and publish applications, deploy applications)
 
-# Package to get public holidays
-
-There are two main python libraries for this purpose: **holidays** and **workalendar**. Based on a quick below comparison I would advise to use the `holidays` library as it is more robust and scalable mostly thanks to its clear dictionary structure.
-
-[holidays][9] pros:
-- the holidays names are in local languages
-- the data are structured as a dictionary with dates as key-value pairs; you can group multiple years as dict within dict
-- takes multiple date formats as an input
-- active GitHub community
-- it is easy to group multiple countries into a single dictionary
-- easy to add custom holidays by appending to the dictionary
-- possibility to distinguish based on provinces and states within states (e.g. all U.S. states)
-- multiple ways to call a country: Czechia, CZE, CZ all works
-
-[holidays][9] cons:
-- the holidays names are in local languages
-- you need to call the year before the data are available
-
-[workalendar][10] pros:
-- holidays names are all in English
-- active GitHub community
-
-[workalendar][10] cons:
-- the data are stored in an object with U.S. mapped names as keys; e.g. boxing_day is 2020-12-25 and lists for each year; you need to call each year separately
-- takes a single date format as an input
-- holidays names are all in English
-- the spelling of the library name
-- you need to call the year before the data are available
-- a list of unnecessary booleans is imported e.g. include_easter_sunday -> same for all other holidays
-- a single way to call a country: CzechRepublic
-
 # Linter
 
 Linter is a tool that analyzes source code to flag programming errors, bugs, stylistic errors and suspicious constructs.
@@ -272,6 +241,44 @@ The default coding style used by Pylint is close to [PEP 8][14] "the Style Guide
 
 [Bandit][12] a python linter focused on security of your code.
 
+# Tips
+
+## Vectorization, parallelization
+
+A great introductory article into the topic with clear examples and code:
+[Vectorization and parallelization with numpy and pandas][15]
+
+## Package to get public holidays
+
+There are two main python libraries for this purpose: **holidays** and **workalendar**. Based on a quick below comparison I would advise to use the `holidays` library as it is more robust and scalable mostly thanks to its clear dictionary structure.
+
+[holidays][9] pros:
+- the holidays names are in local languages
+- the data are structured as a dictionary with dates as key-value pairs; you can group multiple years as dict within dict
+- takes multiple date formats as an input
+- active GitHub community
+- it is easy to group multiple countries into a single dictionary
+- easy to add custom holidays by appending to the dictionary
+- possibility to distinguish based on provinces and states within states (e.g. all U.S. states)
+- multiple ways to call a country: Czechia, CZE, CZ all works
+
+[holidays][9] cons:
+- the holidays names are in local languages
+- you need to call the year before the data are available
+
+[workalendar][10] pros:
+- holidays names are all in English
+- active GitHub community
+
+[workalendar][10] cons:
+- the data are stored in an object with U.S. mapped names as keys; e.g. boxing_day is 2020-12-25 and lists for each year; you need to call each year separately
+- takes a single date format as an input
+- holidays names are all in English
+- the spelling of the library name
+- you need to call the year before the data are available
+- a list of unnecessary booleans is imported e.g. include_easter_sunday -> same for all other holidays
+- a single way to call a country: CzechRepublic
+
 [1]: https://hackersandslackers.com/so-youve-fucked-up-your-python-path/
 [2]: https://pypi.org/project/virtualenvwrapper/
 [3]: https://packaging.python.org/tutorials/packaging-projects/
@@ -286,3 +293,4 @@ The default coding style used by Pylint is close to [PEP 8][14] "the Style Guide
 [12]: https://bandit.readthedocs.io/en/latest/
 [13]: http://pylint.pycqa.org/en/latest/
 [14]: https://www.python.org/dev/peps/pep-0008/
+[15]: https://datascience.blog.wzb.eu/2018/02/02/vectorization-and-parallelization-in-python-with-numpy-and-pandas/

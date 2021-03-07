@@ -39,6 +39,7 @@ For easier exploration of Azure storage, download [Azure Storage Explorer][6]
 * user data for web applications, address books, device information, metadata
 * accepts authenticated calls from inside and outside the Azure cloud
 * a table is a collection of entities (<1MB for Azure storage, <2MB for Azure Cosmos DB)
+* Azure table storage doesn't support array/list/dict data types and thus you cannot have a column which includes only arrays; the workaround is to store JSON with key value pairs containing arrays in a column
 
 [Create Azure Table storage][5]
 

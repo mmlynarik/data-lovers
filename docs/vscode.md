@@ -64,6 +64,13 @@ PYTHONPATH=./src:./tests
 
 `CTRL + SHIFT + P` to trigger the command palette
 
+# VS Code and git
+
+Extensions:
+* GitLens - Git supercharged
+* Git History
+* Git Graph
+* GitHub Pull Requests and Issues
 # Comparison of some basic differences to PyCharm
 
 ## VS Code main benefits
@@ -92,3 +99,6 @@ PYTHONPATH=./src:./tests
 For casual development of analytics scripts and calculation logic PyCharm Community Edition is the best option
 
 For developing code that ends up in production, VSCode is a better option for the way it handles configurations and for the fact that the remote interpreter is free.
+
+# VS Code troubleshooting
+If you encounter the `Error: spawn cmd ENOENT` while using the RUN mode to preview an object on Windows, add `C:\Windows\System32` to your `PATH` system variable.
