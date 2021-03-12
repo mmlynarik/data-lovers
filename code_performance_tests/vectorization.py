@@ -16,7 +16,7 @@ start_time = time.perf_counter()
 
 [x * y for x, y in zip(a, b)]
 
-print(f"--- List comprehension took ---\n{time.perf_counter() - start_time} seconds ")
+print(f"--- List comprehension ---\n{time.perf_counter() - start_time} seconds ")
 
 # Vectorized with numpy
 
@@ -26,8 +26,6 @@ b = np.array([random.randint(1, 100) for _ in range(1000000)])
 start_time = time.perf_counter()
 
 a * b
-
-print(f"--- Numpy vectorization took ---\n{time.perf_counter() - start_time} seconds ")
 
 # Harversine formula (great circle distance of two points on Earth)
 
@@ -71,7 +69,7 @@ start_time = time.perf_counter()
 np.apply_along_axis(haversine, 1, coords)
 
 print(
-    f"--- Non-vectorized harversine took ---\n{time.perf_counter() - start_time} seconds "
+    f"--- Non-vectorized harversine ---\n{time.perf_counter() - start_time} seconds "
 )
 
 
@@ -103,7 +101,7 @@ start_time = time.perf_counter()
 vec_haversine(coords[:, 0], coords[:, 1], coords[:, 2], coords[:, 3])
 
 print(
-    f"--- Vectorized harversine took ---\n{time.perf_counter() - start_time} seconds "
+    f"--- Vectorized harversine ---\n{time.perf_counter() - start_time} seconds "
 )
 
 # Harversine with pandas
@@ -123,7 +121,7 @@ vec_haversine(
 )
 
 print(
-    f"--- Vectorized harversine on dataframe took ---\n{time.perf_counter() - start_time} seconds "
+    f"--- Vectorized harversine on dataframe ---\n{time.perf_counter() - start_time} seconds "
 )
 
 # Multi-processing
@@ -173,4 +171,4 @@ results = pd.concat((df_coords, results), axis=1)
 # make sure we got a result for each coordinate pair:
 assert len(results) == len(df_coords)
 
-print(f"--- Parallel processes took ---\n{time.perf_counter() - start_time} seconds ")
+print(f"--- Parallel processes ---\n{time.perf_counter() - start_time} seconds ")
