@@ -8,7 +8,9 @@ Airflow is a platform for scheduling and monitoring workflows. Some people call 
 # Build Airflow within Docker (on-premise Linux server with Docker)
 Use the following [Docker image by puckel][2]
 
-Choose the [Local executor][3]
+Choose the [Local executor][3] for local development or single node purposes.
+
+[Airflow Executors Explained][19]
 
 To run airflow locally just copy the `docker-compose-LocalExecutor.yml` launch docker and run `docker-compose up`.
 This will build a docker container and host Airflow locally.
@@ -26,6 +28,11 @@ Can it be deployed automatically??
 
 It is recommended to always use STATIC `start_date` in a DAG arguments.
 
+In case you set your `start_date` to `datetime.datetime(2021, 2, 22, 6, 0)` and the DAG is scheduled with the expression `0 6 * * *` the DAG will not execute on 2021-02-22 but first on 2021-02-23 at 6. 
+In order to have your DAG run on the same day, set the `start_date` time before its scheduled time.
+
+In case you manually trigger a DAG with a `start_date` in the future, the DAG will run successfylly but no tasks will be executed. You will end up with a success DAG with no tasks run and empty logs.
+
 ```
 import datetime
 
@@ -33,6 +40,9 @@ args = {"start_date": datetime.datetime(2021, 2, 9, 6, 0)}
 ```
 
 You can use - airflow.utils.dates.days_ago(7) but it is not advisable and may cause issues as the dag gets confused at 00:00 and switch to next day incorrectly.
+
+## Cron expressions
+[Crontab guru calculator][17]
 
 # Potential problems and their resolution
 If you are not able to get into Airflow platform while others can, please clear your browsing history (cookies, site data, cashed files). 
@@ -63,6 +73,10 @@ A simple overview and presentation on how to build Airflow UI from a docker file
 
 [https://medium.com/analytics-and-data/10-benefits-to-using-airflow-33d312537bae][14]
 
+[A complete guide to setting up a local development environment for Airflow (Docker, PyCharm and tests)][18]
+
+[Lesser known tips and tricks in Airflow][20]
+
 [1]: https://medium.com/@itunpredictable/apache-airflow-on-docker-for-complete-beginners-cf76cf7b2c9a
 [2]: https://github.com/puckel/docker-airflow
 [3]: https://airflow.apache.org/docs/apache-airflow/stable/executor/local.html
@@ -79,3 +93,7 @@ A simple overview and presentation on how to build Airflow UI from a docker file
 [14]: https://medium.com/analytics-and-data/10-benefits-to-using-airflow-33d312537bae
 [15]: https://airflow.apache.org/docs/apache-airflow/stable/executor/index.html
 [16]: https://airflow.apache.org/docs/apache-airflow/stable/scheduler.html
+[17]: https://crontab.guru/
+[18]: https://medium.com/ninjavan-tech/setting-up-a-complete-local-development-environment-for-airflow-docker-pycharm-and-tests-3577ddb4ca94
+[19]: https://www.astronomer.io/guides/airflow-executors-explained
+[20]: https://medium.com/datareply/airflow-lesser-known-tips-tricks-and-best-practises-cf4d4a90f8f

@@ -132,51 +132,9 @@ Flask already has a web server built within itself. This means it will create it
 Web services usually return JSON.
 Web applications usually return a page e.g. HTML.
 
-### R and environments
+### Validating JSON schema of the request/response
 
-- reproduce work (schedule reporting, team collaboration, project validation); making sure the code always runs (making sure the right package versions and other environment variables are in place); safely upgrade packages
-  Strategies for the environment management
-- snapshot and restore -> using renv to record and restore project's dependencies
-- the shared baseline -> providing a common set of packages to use across projects
-- the validated -> packages must be controlled and meet specific organization standards
-
-- further reading in [environments Rstudio](https://environments.rstudio.com/)
-- [Docker and R](https://environments.rstudio.com/docker.html)
-
-### R and APIs
-
-- there are two API frameworks in R: openCPU and plumber
-- uncommon to use R for product development; most of the popular APIs do not offer software development kits (SDKs) or how-to guides for analysts working in R (as for e.g. Python)
-
-#### Plumber
-
-- install the package called `plumber`
-- R package for creating RESTful APIs
-- turning existing R functions into API endpoints; to do so you need to provide specialized R comments before R functions (use `#*`)
-
-Code example:
-
-```
-library(plumber)
-
-#* @apiTitle Simple API
-
-#* Echo provided text
-#* @param text The text to be echoed in the response
-#* @get /echo
-function(text = "") {
-  list(
-    message_echo = paste("The text is:", text)
-  )
-}
-```
-
-- by default `plumber` will serialize the object returned from a function into JSON using the `jsonlite` package
-- read more on [R, plumber and API](https://rviews.rstudio.com/2018/07/23/rest-apis-and-plumber/)
-- RStudio now uses swagger-generated UI to view and interact with the created API
-
-- all current code in Nano is written in R
-- current prevailing expertise in the team is in R
+Use the [jsonschema][1] package.
 
 ### NodeJS and APIs
 
@@ -198,3 +156,5 @@ app.get(“/url”, (req, res, next) => {
  res.json([“Kevin”,”Neil”,”Antony”,”Jonas”,”Lambert”]);
 });
 ```
+
+[1]: https://python-jsonschema.readthedocs.io/en/latest/

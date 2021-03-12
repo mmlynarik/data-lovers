@@ -39,6 +39,7 @@ For easier exploration of Azure storage, download [Azure Storage Explorer][6]
 * user data for web applications, address books, device information, metadata
 * accepts authenticated calls from inside and outside the Azure cloud
 * a table is a collection of entities (<1MB for Azure storage, <2MB for Azure Cosmos DB)
+* Azure table storage doesn't support array/list/dict data types and thus you cannot have a column which includes only arrays; the workaround is to store JSON with key value pairs containing arrays in a column
 
 [Create Azure Table storage][5]
 
@@ -51,25 +52,12 @@ When using a NoSQL storage, there is a lot of new ways of thinking about your st
 
 You can store the entire dataframes within a single RowKey. Let's say you set a single market and a day as your partition. You set a stock as your row. Within the data, you can store a price prediction for every minute of that stock for that day. You can then use the partition and row indexes to retrieve specific objects as you need them.
 
-```
-from azure.data.tables import TableServiceClient
+Check [azure_tables_code_template](../code_templates/azure/azure_tables.py) for a simple how to guide.
 
-entity = {
-    "PartitionKey": partition_index,
-    "RowKey": object_index,
-    "data": dict
-}
+Interesting article about costs of data storage in Azure tables on large scale, how to delete them and how to think about the design of your storage to keep deletion in mind.
+[Reaching the limits of Azure Table storage ... or trying to][8]
 
-connection_string = get_your_credential()
-
-azure_table_name = "your_table_name"
-
-table_service_client = TableServiceClient.from_connection_string(
-    conn_str=connection_string
-)
-table_client = table_service_client.get_table_client(table_name=azure_table_name)
-table_client = table_client.create_entity(entity=entity)
-```
+[Azure table storage design guide][9]
 
 ## Azure PostgreSQL or CosmosDb
 * relational database
@@ -87,6 +75,10 @@ table_client = table_client.create_entity(entity=entity)
 5) When are the data created and for how long are they valid?
 6) Data access and sensitivity
 
+# Application insights
+
+To view your saved queries go into the query explorer.
+
 [1]: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction
 [2]: https://docs.microsoft.com/en-us/azure/storage/tables/table-storage-overview
 [3]: https://docs.microsoft.com/en-us/rest/api/storageservices/insert-entity
@@ -94,3 +86,5 @@ table_client = table_client.create_entity(entity=entity)
 [5]: https://docs.microsoft.com/en-us/azure/storage/tables/table-storage-quickstart-portal
 [6]: https://azure.microsoft.com/en-us/features/storage-explorer/
 [7]: https://pypi.org/project/azure-data-tables/
+[8]: https://medium.com/clusterreply/azure-table-storage-limits-da039b20510a
+[9]: https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-design-guide
