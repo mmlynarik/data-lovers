@@ -18,6 +18,7 @@ Signature will always contain 3 numbers; n will always be a non-negative number;
 If you enjoyed this kata more advanced and generalized version of it can be found in the Xbonacci kata
 """
 
+
 def tribonacci(signature, n):
     for _ in range(n):
         signature.append(sum(signature[-3:]))

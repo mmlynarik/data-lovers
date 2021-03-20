@@ -279,6 +279,19 @@ There are two main python libraries for this purpose: **holidays** and **workale
 - a list of unnecessary booleans is imported e.g. include_easter_sunday -> same for all other holidays
 - a single way to call a country: CzechRepublic
 
+# Python Global Interpreter Lock (GIL)
+
+- a lock that allows only one thread to hold the control of the Python interpreter
+
+> only one thread can be in a state of execution at any point in time 
+
+- exists only in the original CPython implementation
+- a thread is a separate flow of execution (the threads may be running on different processors, but they will only be running one at a time -> to run them at the same time, check out multi-processing)
+
+Multi-processing approach gives each python process its own Python interpretter and memory space so the GIL is not a problem.
+
+[What is the Python Global Interpreter Lock?][16]
+
 [1]: https://hackersandslackers.com/so-youve-fucked-up-your-python-path/
 [2]: https://pypi.org/project/virtualenvwrapper/
 [3]: https://packaging.python.org/tutorials/packaging-projects/
@@ -294,3 +307,4 @@ There are two main python libraries for this purpose: **holidays** and **workale
 [13]: http://pylint.pycqa.org/en/latest/
 [14]: https://www.python.org/dev/peps/pep-0008/
 [15]: https://datascience.blog.wzb.eu/2018/02/02/vectorization-and-parallelization-in-python-with-numpy-and-pandas/
+[16]: https://realpython.com/python-gil/
