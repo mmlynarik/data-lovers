@@ -27,3 +27,7 @@ Check your git config: `git config --get remote.origin.fetch`
 If it is set only to master then it is the reason why you can't pull any other remote branches.
 
 Fix with: `git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"`
+
+# Useful commands
+
+`git branch` to check the name of the current branch

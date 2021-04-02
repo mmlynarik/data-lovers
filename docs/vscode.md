@@ -125,6 +125,10 @@ PYTHONPATH=./src:./tests
 
 `CTRL + SHIFT + Y` to open the debug console
 
+`ALT` when hovering over a function/class/method/variable hit ALT to see the extended documentation
+
+`SHIFT + ALT + O` to organize imports
+
 # VS Code and git
 
 Extensions:

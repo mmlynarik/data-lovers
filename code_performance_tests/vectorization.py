@@ -1,9 +1,9 @@
 import math
+import multiprocessing as mp
 import random
 import sys
 import time
 
-import multiprocessing as mp
 import numpy as np
 import pandas as pd
 
