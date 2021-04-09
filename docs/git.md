@@ -18,3 +18,16 @@ If you wish to switch to a specific commit:
 `git checkout <commit_hash>` to get to a specific commit
 
 `git checkout <my_branch>` to get to the latest version of the branch
+
+
+Git pull doesn't pull remote branches or doesn't communicate with remote on any other branch than master.
+
+Check your git config: `git config --get remote.origin.fetch`
+
+If it is set only to master then it is the reason why you can't pull any other remote branches.
+
+Fix with: `git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"`
+
+# Useful commands
+
+`git branch` to check the name of the current branch

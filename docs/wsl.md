@@ -8,14 +8,26 @@ If you compile Python from source, you must have the lzma-dev package installed,
 
 For ubuntu: `sudo apt-get install liblzma-dev` 
 
+Instead of setting alternatives, you can set alias for your specific python version in `~/.bashrc`:
+```
+alias python='python3.9'
+```
+
 [Multiple python versions on Ubuntu][1]
+
 [Using Python from WSL in VSCode][2]
+
 [Encounter lsb_release issue?][3]
 
 # SSH
 To use SSH from windows
 1. Install keychain `sudo apt-get install keychain`
-2. Copy your ssh files into `$HOME/.ssh`
+2. Add the following code you the `~/.bashrc` file. Adjust path to your needs.
+
+```
+/usr/bin/keychain --nogui /mnt/c/users/john.smith/.ssh/john_github
+source $HOME/.keychain/$HOSTNAME-sh
+```
 
 [More ways to enable SSH in WSL][4]
 
