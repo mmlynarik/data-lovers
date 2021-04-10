@@ -1,5 +1,7 @@
 # [Airflow][7]
 
+Data lovers are working on their own example playground for Airflow where we learn some basic how tos. Check it out at [data-lovers-airflow][22]
+
 Airflow is a platform for scheduling and monitoring workflows. Some people call Airflow CRON on steroids.
 
 [Scheduler][16] monitors all tasks and DAGs, then triggers the task instances once their dependencies are complete.
@@ -77,6 +79,8 @@ A simple overview and presentation on how to build Airflow UI from a docker file
 
 [Lesser known tips and tricks in Airflow][20]
 
+[Airflow 2.0 install based on the official docker-compose.yaml file][21]
+
 [1]: https://medium.com/@itunpredictable/apache-airflow-on-docker-for-complete-beginners-cf76cf7b2c9a
 [2]: https://github.com/puckel/docker-airflow
 [3]: https://airflow.apache.org/docs/apache-airflow/stable/executor/local.html
@@ -97,3 +101,5 @@ A simple overview and presentation on how to build Airflow UI from a docker file
 [18]: https://medium.com/ninjavan-tech/setting-up-a-complete-local-development-environment-for-airflow-docker-pycharm-and-tests-3577ddb4ca94
 [19]: https://www.astronomer.io/guides/airflow-executors-explained
 [20]: https://medium.com/datareply/airflow-lesser-known-tips-tricks-and-best-practises-cf4d4a90f8f
+[21]: https://www.youtube.com/watch?v=J6azvFhndLg
+[22]: https://github.com/JurajPalka/data-lovers-airflow

@@ -46,6 +46,8 @@
 Example of running a container which takes files from local directory (bind mounting) enabling local development. You change the file in your IDE and it is immediately reflected in the docker container.
 `docker run --name mounted_equity_api -p 5000:5000 -v /C/Users/juraj.palka/Documents/gitlab/general://usr/src/app:ro equity_api`
 
+If you open your Docker app, you can inspect the logs and inspect the containers directly in the Docker desktop UI. For example you can see the list of all environment variables set up in the container or the logs within the container without the need to run the commands in terminal. You can also see mounted folders and stats on the performance of the container. You can also open terminal directly from the UI, no need to use docker exec interactive bash command.
+
 ## Docker image
 
 - the application we want to run
@@ -165,7 +167,7 @@ Once finished, remove the committed container along with the committed image to 
 
 [How to run multiple python scripts and an executable files using docker](https://stackoverflow.com/a/53921299/11684102)
 
-#### Simple Docker commands in Windows PowerShell
+#### Simple Docker commands
 
 `--help` after any command to get its documentation and options<br>
 `docker version` to check the currently installed version of docker; verify the client<br>
@@ -212,6 +214,7 @@ and vice versa with:
 If you are doing minor changes to the Dockerfile, you don't need to remove the image and then re-build it. Stop the linked containers and run `docker-compose build` instead.
 
 `docker-compose build`. If you change a service’s Dockerfile or the contents of its build directory, run docker-compose build to rebuild it.
+
 #### Docker code examples with explanation
 
 `docker container run --publish 80:80 nginx`

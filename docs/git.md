@@ -31,3 +31,5 @@ Fix with: `git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"`
 # Useful commands
 
 `git branch` to check the name of the current branch
+
+`git commit --amend` to edit the most recent commit message
