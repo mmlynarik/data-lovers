@@ -1,13 +1,24 @@
-# Python
+# Installing python
 Check all the installed python distributions on your machine. Make sure you understand the path to each installation and that you are aware of them. 
 
 If you encounter mismatch of 32-bit python vs. 64-bit python, use this, to validate the version of currently used python:
 `python -c 'import platform; print(platform.architecture()[0])'`
 
+We recommend installing python from [python.org][17] and choosing the version you need. If you don't need a specific version, we recommend you to install the latest.
+
+> Please use the base python distribution, do not use Anaconda distribution. 
+
+## Tips for absolute beginners
+
+In case you have multiple different pythons on your system and you do not use them for anything or you do not understand why you have them there; just uninstall all of them and start from scratch. 
+
+Very often, people install some python when they wish to start with coding and then abandon it. Then start it over installing a newer version. Or they enlist into an online course telling them to install Anaconda on top of an existing python etc. Such situations lead to many problems if the user doesn't understand what he/she is doing at that time.
+
 # Python path problems
 [Python path problems?][1]
 
-# Set up virtualenvwrapper on Ubuntu in BASH
+# Virtualenvwrapper
+## Set up virtualenvwrapper on Ubuntu in BASH
 
 Make sure you set the following in `~/.bash_profile`:
 * path to python
@@ -20,6 +31,8 @@ export WORKON_HOME=$HOME/venvs
 source $HOME/.local/bin/virtualenvwrapper.sh
 export PIP_VIRTUALENV_BASE=$HOME/venvs
 ```
+
+## Set up virtualenvwrapper on Windows
 
 # Environment variables
 
@@ -46,9 +59,6 @@ If your module is not found and you are sure it is installed:
 import my_module
 print(my_module.__file__)
 ```
-
-# Generating unique identifiers
-Check out the [uuid][8] package.
 
 # Installing packages
 When you use `pip install -r requirements.txt` you can be installing latest version of listed package or its specific version or a minimal version etc. 
@@ -279,6 +289,9 @@ There are two main python libraries for this purpose: **holidays** and **workale
 - a list of unnecessary booleans is imported e.g. include_easter_sunday -> same for all other holidays
 - a single way to call a country: CzechRepublic
 
+# Generating unique identifiers
+Check out the [uuid][8] package.
+
 # Python Global Interpreter Lock (GIL)
 
 - a lock that allows only one thread to hold the control of the Python interpreter
@@ -308,3 +321,4 @@ Multi-processing approach gives each python process its own Python interpretter 
 [14]: https://www.python.org/dev/peps/pep-0008/
 [15]: https://datascience.blog.wzb.eu/2018/02/02/vectorization-and-parallelization-in-python-with-numpy-and-pandas/
 [16]: https://realpython.com/python-gil/
+[17]: https://www.python.org/downloads/
