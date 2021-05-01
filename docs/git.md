@@ -31,3 +31,14 @@ Fix with: `git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"`
 # Useful commands
 
 `git branch` to check the name of the current branch
+
+`git commit --amend` to edit the most recent commit message
+
+# OS specific advice
+
+In case you are using Windows, always use LF line endings (eol).
+You can set it up in `.gitattributes` file, in your IDE or by running the following commands:
+```
+git config --global core.autocrlf false
+git config --global core.eol lf
+```

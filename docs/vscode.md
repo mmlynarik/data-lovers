@@ -149,6 +149,9 @@ Extensions:
 * easy conversion to and from jupyter notebooks (very useful if you use them)
 * free integration with jupyter notebooks (useful if you use them)
 * you can sync your user settings to your GitHub account and get going right away on any machine
+* LiveShare -> you can share your IDE with others in real-time, they can see and edit your code interactively in their VSCode; you can debug together etc. this is an amazing tool for mentoring and helping others to learn with a hands on experience
+* GitHub integration -> you can create, edit, review, compare, comment etc. the PRs in GitHub directly in VSCode without leaving your IDE; this makes code reviews much faster and more effective
+* Docker extension which gives you all the information and tools to easily manage your docker images and containers right in your IDE
  
 ## PyCharm main benefits
 
@@ -161,9 +164,16 @@ Extensions:
 * initially I liked VCS implementation in VSCode more, now I got used to the PyCharm one and prefer it instead, I guess it is a matter of getting used to one or the other (personal preference)
 
 ## Conclusion
-For casual development of analytics scripts and calculation logic PyCharm Community Edition is the best option
+For casual development of analytics scripts and calculation logic PyCharm Community Edition is easier to start with. However, getting used to VScode opens much more possibilities for the future development and extending your skills and knowledge.
 
-For developing code that ends up in production, VSCode is a better option for the way it handles configurations and for the fact that the remote interpreter is free.
+Th free VSCode extensions provide amazing value and you can customize them to your needs.
+
+I found VSCode superior in the ease of developing production code. VSCode allows you to do all configurations in json files which allows you to share them with others so you save them the pain of setting stuff up in UI. 
+
+The remote interpreter is free.
+Jupyter notebooks integration is free.
+Real-time collaboration is free.
+All extensions are free.
 
 # VS Code troubleshooting
 If you encounter the `Error: spawn cmd ENOENT` while using the RUN mode to preview an object on Windows, add `C:\Windows\System32` to your `PATH` system variable.
