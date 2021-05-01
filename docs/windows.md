@@ -1,5 +1,7 @@
 # Keyboard shortcuts
 
+`WIN + S` to open search within your PC
+
 ## Desktops management
 `WIN + TAB` to get into the desktop control
 
@@ -28,4 +30,3 @@
 `WIN + Home` Minimize all windows except the active one.
 
 `WIN + Shift + Up Arrow` Stretch window to the top and bottom of the screen.
-
